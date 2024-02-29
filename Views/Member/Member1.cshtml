@@ -1,0 +1,31 @@
+@using Bookish.Models;
+@model Member; // Properties: Name, Id, CurrentBooksOnLoan, PastLoans
+
+@{
+    ViewData["Title"] = "Member1";
+}
+
+<div>
+    <h1 class="display-4">Hello @Model.Name !</h1>
+    <p>Id: @Model.Id </p>
+    <br>
+    <p>Current books on loan:</p>
+    <ul>@{
+            foreach (var book in Model.CurrentBooksOnLoan)
+            {
+                <li>@book.Title</li>
+            }
+        }
+    </ul>
+    <br>
+    <p>Past loans:</p>
+    <ul>
+        @{
+            foreach (var book in Model.PastLoans)
+            {
+                <li>@book.Title</li>
+            }
+        }
+        
+    </ul>
+</div>
